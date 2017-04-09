@@ -22,48 +22,63 @@ alt + shift + {1,2,3,4,5,6,7,8,9,0}
 alt + shift + space
 	bspc node -t ~floating
 
+#Move node
 alt + shift + {Left,Down,Up,Right}
 	bspc node -s {left,down,up,right}
+
+#Move focus
 alt + {Left,Down,Up,Right}
 	bspc node -f {left,down,up,right} || bspc monitor -f last
 
-~button1
-	bspc pointer -g focus
+#Set focus to pointer
+#~button1
+#	bspc pointer -g focus
 
+#Resize
 alt + button{1-3}
 	bspc pointer -g {move,resize_side,resize_corner}
 
-#
-# wm independent hotkeys
-#
 
+#New urxvt terminal
 alt + shift + T
-	urxvt
+	termite
 
-# Media
+# Media keys
 XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +5%
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86MonBrightness{Up,Down}
 	backlight {+,-}5%
+XF86MyComputer
+	mpc prev
+XF86Favorites
+	mpc toggle
+XF86Mail
+	mpc next
+
+#Projecter key
 F4
 	xrandr --output HDMI1 --set "Broadcast RGB" "Full" --mode 1920x1080
 
+#Manually lock computer
 alt + l
-	i3lock-fancy -p
+	i3lock-fancy -p -g
 
 # make sxhkd reload its configuration files:
 alt + shift + r
 	pkill -USR1 -x sxhkd
 
+#Screenshot 
 Print
 	scrot ~/Pictures/Screenshots/%b%d::%H%M%S.png
 
-
+#Rofi change windows
 alt + Tab
 	rofi -show window -bg "#222222" -bc "#1f1f1f" -fg "#6d715e" -hlbg "#4a3637" -hlfg "#c0b18b" -padding 0 -bw 0
-alt + d
+
+#Rofi run
+alt + r
 	rofi -show run -bg "#222222" -bc "#1f1f1f" -fg "#6d715e" -hlbg "#4a3637" -hlfg "#c0b18b" -padding 0 -bw 0

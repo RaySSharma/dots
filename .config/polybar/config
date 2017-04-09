@@ -85,10 +85,10 @@ type = internal/network
 interface = wlo1
 interval = 3
 ping_interval = 3
-format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
+format-connected = <ramp-signal><label-connected>
+label-connected=%essid%
 label-connected-foreground = #eefafafa
-label-disconnected =  not connected
+label-disconnected=not connected
 label-disconnected-foreground = #66ffffff
 ramp-signal-0 = 
 ramp-signal-0-foreground = #33ffffff
@@ -155,6 +155,8 @@ label-song-margin-left = 5
 
 [module/volume]
 type = internal/volume
+master-soundcard = default
+mapping=true
 format-volume = <ramp-volume> <bar-volume>
 ramp-volume-0 = 
 ramp-volume-1 = 
