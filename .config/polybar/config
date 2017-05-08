@@ -56,7 +56,7 @@ label = CPU: %percentage%%
 
 [module/ram]
 type = internal/memory
-label = RAM: %percentage_used%
+label = RAM %percentage_used%
 
 
 [module/clock]
