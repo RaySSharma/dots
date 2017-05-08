@@ -23,7 +23,6 @@ bspc config borderless_monocle  false
 bspc config gapless_monocle     true
 bspc config focus_follows_pointer true
 bspc config click_to_focus true
-#bspc config pointer_follows_focus true
 
 bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0
 
@@ -31,14 +30,14 @@ bspc rule -a Thunar state=floating
 bspc rule -a Steam state=tiled desktop=^6
 bspc rule -a Chromium state=tiled desktop=^2
 bspc rule -a LibreOffice state=tiled desktop=^5
-bspc rule -a Plank layer=above manage=on locked=on border=off
+bspc rule -a Plank layer=above manage=off locked=on border=off
 bspc rule -a Mathematica state=tiled desktop=^5
-bspc rule -a crx_flejfacjooompmliegamfbpjjdlhokhj state=floating
 bspc rule -a Evince state=tiled desktop=^4
 bspc rule -a Subl3 state=tiled desktop=^3
-bspc rule -a "Mendeley Desktop" state=floating
+bspc rule -a "Mendeley Desktop" state=tiled desktop=^4
 bspc rule -a "Qt-subapplication" state=floating
 bspc rule -a "Polybar" manage=off layer=above locked=on border=off
+bspc rule -a "Pavucontrol" state=floating
 
 bspc config top_padding 12
 bspc config bottom_padding 55
@@ -46,18 +45,17 @@ bspc config bottom_padding 55
 bspc config external_rules_command "~/.config/bspwm/external_rules.sh"
 
 # Autostart
-bgchd -dir ~/Pictures/Wallpapers -bcknd feh -intv 30m
-i3lock-fancy -p -g
-compton -cCGf --backend glx --paint-on-overlay --vsync opengl-swc &
+feh --bg-fill ~/Pictures/Wallpapers/alone.png
+i3lock-fancy -g
+compton -f --backend glx --paint-on-overlay --vsync opengl-swc&
 plank &
 polybar bar1 &
 sxhkd &
 xbindkeys
-#pulseaudio --start
 bspc desktop -f 1 &
 redshift &
 xsetroot -cursor_name left_ptr
 syndaemon -i 0.5 -t -K -R -d
 dropbox &
-xautolock -time 15 -locker "i3lock-fancy -p -g"
+xautolock -time 15 -locker "i3lock-fancy -g"
 udiskie &

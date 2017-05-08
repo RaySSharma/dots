@@ -2,10 +2,6 @@
 # bspwm hotkeys
 #
 
-#Quit bspwm
-ctrl + shift + q
-	bspc quit
-
 #Kill current node
 alt + shift + q
 	bspc node -k
@@ -52,12 +48,10 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86MonBrightness{Up,Down}
 	backlight {+,-}5%
-XF86MyComputer
-	mpc prev
-XF86Favorites
-	mpc toggle
-XF86Mail
+alt + .
 	mpc next
+alt + ,
+	mpc prev
 
 #Projecter key
 F4
@@ -65,7 +59,7 @@ F4
 
 #Manually lock computer
 alt + l
-	i3lock-fancy -p -g
+	i3lock-fancy -g
 
 # make sxhkd reload its configuration files:
 alt + shift + r
@@ -77,8 +71,18 @@ Print
 
 #Rofi change windows
 alt + Tab
-	rofi -show window -bg "#222222" -bc "#1f1f1f" -fg "#6d715e" -hlbg "#4a3637" -hlfg "#c0b18b" -padding 0 -bw 0
+	rofi -show window -width 2560 -location 0 -lines 19 -bw 0 -font "Source Code Pro 12" -padding 770 -separator-style solid
 
 #Rofi run
 alt + r
-	rofi -show run -bg "#222222" -bc "#1f1f1f" -fg "#6d715e" -hlbg "#4a3637" -hlfg "#c0b18b" -padding 0 -bw 0
+	rofi -show run -width 2560 -location 0 -lines 19 -bw 0 -font "Source Code Pro 12" -padding 770 -separator-style solid
+
+# Lock node
+alt + shift + p
+	bspc window -t private
+
+# Lock a window from closing
+alt + Escape
+	bspc window -t locked 
+2
+w

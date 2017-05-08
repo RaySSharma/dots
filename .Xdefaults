@@ -1,44 +1,20 @@
-! stuff
-*.cursorColor:#c0b18b
-*.colorBD:    #c0b18b
-*.colorUL:    #c0b18b
-*.colorIT:    #c0b18b
+rofi.padding: 770
+rofi.fullscreen: false
+rofi.location: 0
+rofi.bw: 0
+rofi.lines: 19
+rofi.line-padding: 3
+rofi.line-margin: 0
+rofi.font: Source Code Pro 12
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
 
-*background: #1D1F21
-*foreground: #c0b18b
-! black
-*color0: #282A2E
-*color8: #373B41
-! red
-*color1: #A54242
-*color9: #CC6666
-! green
-*color2: #8C9440
-*color10: #B5BD68
-! yellow
-*color3: #DE935F
-*color11: #F0C674
-! blue
-*color4: #5F819D
-*color12: #81A2BE
-! magenta
-*color5: #85678F
-*color13: #B294BB
-! cyan
-*color6: #5E8D87
-*color14: #8ABEB7
-! white
-*color7: #707880
-*color15: #C5C8C6
-
-! urxvt
-URxvt*cursorBlink: 		true
-URxvt*font:			xft:source code pro:pixelsize=14
-URxvt*boldFont:			xft:source code pro:pixelsize=14! -*-iosevka-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*scrollBar: 		false
-URxvt.perl-ext-common:	default,matcher
-URxvt.url-launcher: 	/usr/bin/chromium
-URxvt.matcher.button: 	1
-URxvt*internalBorder: 	16
-URxvt*depth:	32
-URxvt*background: 	rgba:0000/0000/0200/c800
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! Enable the extended coloring options
+rofi.color-enabled: true
+rofi.color-window: argb:a2282828, argb:0000000, argb:dad79921
+rofi.color-normal: argb:0282828, #ebdbb2, argb:032302f, #fabd2f, #282828
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828

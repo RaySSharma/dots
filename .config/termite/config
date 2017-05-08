@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Source Code Pro 9
+font = Source Code Pro 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -17,7 +17,7 @@ search_wrap = true
 cursor_blink = system
 
 # "block", "underline" or "ibeam"
-cursor_shape = block
+cursor_shape = ibeam
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 #browser = xdg-open
@@ -37,7 +37,7 @@ filter_unmatched_urls = true
 foreground      = #ffffff
 foreground_bold = #ffffff
 cursor          = #ffffff
-background = rgba(30, 30, 30, 0.8)
+background = rgba(30, 30, 30, 0.9)
 highlight = #CCC68Dr
 
 # black
@@ -65,16 +65,3 @@ color14 = #c25431
 color7  = #efe2e0
 color15 = #f9f1ed
 
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
-# vim: ft=dosini cms=#%s
