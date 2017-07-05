@@ -30,7 +30,7 @@ bspc rule -a Thunar state=floating
 bspc rule -a Steam state=tiled desktop=^6
 bspc rule -a Chromium state=tiled desktop=^2
 bspc rule -a LibreOffice state=tiled desktop=^5
-bspc rule -a Plank layer=above manage=off locked=on border=off
+bspc rule -a Plank layer=above manage=on locked=on border=off
 bspc rule -a Mathematica state=tiled desktop=^5
 bspc rule -a Evince state=tiled desktop=^4
 bspc rule -a Subl3 state=tiled desktop=^3
@@ -38,7 +38,8 @@ bspc rule -a "Mendeley Desktop" state=tiled desktop=^4
 bspc rule -a "Qt-subapplication" state=floating
 bspc rule -a "Polybar" manage=off layer=above locked=on border=off
 bspc rule -a "Pavucontrol" state=floating
-
+bspc rule -a "Thunderbird" desktop=^5 state=tiled
+bspc rule -a "Emacs" desktop=^3 state=tiled
 bspc config top_padding 12
 bspc config bottom_padding 55
 
@@ -56,6 +57,6 @@ bspc desktop -f 1 &
 redshift &
 xsetroot -cursor_name left_ptr
 syndaemon -i 0.5 -t -K -R -d
-dropbox &
+#dropbox &
 xautolock -time 15 -locker "i3lock-fancy -g"
 udiskie &

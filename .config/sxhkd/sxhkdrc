@@ -19,12 +19,12 @@ alt + shift + space
 	bspc node -t ~floating
 
 #Move node
-alt + shift + {Left,Down,Up,Right}
-	bspc node -s {left,down,up,right}
+alt + shift + {Left,Right}
+	bspc node -s {prev,next}
 
 #Move focus
-alt + {Left,Down,Up,Right}
-	bspc node -f {left,down,up,right} || bspc monitor -f last
+alt + {Left,Right}
+	bspc node -f {prev,next} || bspc monitor -f last
 
 #Set focus to pointer
 #~button1
