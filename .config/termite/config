@@ -10,58 +10,56 @@ clickable_url = true
 font = Source Code Pro 10
 scrollback_lines = 10000
 search_wrap = true
-#icon_name = terminal
-#geometry = 640x480
-
-# "system", "on" or "off"
 cursor_blink = system
-
-# "block", "underline" or "ibeam"
 cursor_shape = ibeam
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
-
-# set size hints for the window
-#size_hints = false
-
-# Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
 
-# emit escape sequences for extra modified keys
-#modify_other_keys = false
-
-
 [colors]
-# special
-foreground      = #ffffff
-foreground_bold = #ffffff
-cursor          = #ffffff
-background = rgba(30, 30, 30, 0.9)
-highlight = #CCC68Dr
+# Base16 Tomorrow Night
+# Author: Chris Kempson (http://chriskempson.com)
 
-# black
-color0  = #5a7260
-color8  = #8da691
-# red
-color1  = #8f423c
-color9  = #eeaa88
-# green
-color2  = #bbbb88
-color10 = #ccc68d
-# yellow
-color3  = #f9d25b
-color11 = #eedd99
-# blue
-color4  = #e0ba69
-color12 = #c9b957
-# magenta
-color5  = #709289
-color13 = #ffcbab
-# cyan
-color6  = #d13516
-color14 = #c25431
-# white
-color7  = #efe2e0
-color15 = #f9f1ed
+foreground      = #dddddd
+foreground_bold = #dddddd
+cursor          = #dddddd
+background      = rgba(30,30,30,0.95)
+highlight	= #CCC68Dr
 
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #1d1f21
+color8  = #969896
+color7  = #c5c8c6
+color15 = #ffffff
+
+# Red
+color1  = #cc6666
+color9  = #cc6666
+
+# Green
+color2  = #b5bd68
+color10 = #b5bd68
+
+# Yellow
+color3  = #f0c674
+color11 = #f0c674
+
+# Blue
+color4  = #81a2be
+color12 = #81a2be
+
+# Purple
+color5  = #b294bb
+color13 = #b294bb
+
+# Teal
+color6  = #8abeb7
+color14 = #8abeb7
+
+# Extra colors
+color16 = #de935f
+color17 = #a3685a
+color18 = #282a2e
+color19 = #373b41
+color20 = #b4b7b4
+color21 = #e0e0e0
