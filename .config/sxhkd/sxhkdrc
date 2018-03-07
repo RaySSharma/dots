@@ -26,18 +26,17 @@ alt + shift + {Left,Right}
 alt + {Left,Right}
 	bspc node -f {prev,next} || bspc monitor -f last
 
-#Set focus to pointer
-#~button1
-#	bspc pointer -g focus
-
-#Resize
-alt + button{1-3}
-	bspc pointer -g {move,resize_side,resize_corner}
-
-
-#New urxvt terminal
+#New terminal
 alt + shift + T
 	termite
+	xdotool search --class cairo-dock windowraise %@
+
+#New file explorer
+alt + shift + F
+	thunar
+#Resizing floating windows
+win + !button{1-3}
+    bspc pointer -t %i %i
 
 # Media keys
 XF86AudioLowerVolume
@@ -59,7 +58,7 @@ F4
 
 #Manually lock computer
 alt + l
-	i3lock-fancy -g
+	exec /home/ray/.config/i3lock-fancier/lockscreen.sh
 
 # make sxhkd reload its configuration files:
 alt + shift + r
@@ -71,18 +70,8 @@ Print
 
 #Rofi change windows
 alt + Tab
-	rofi -show window -width 2560 -location 0 -lines 19 -bw 0 -font "Source Code Pro 12" -padding 770 -separator-style solid
+	rofi -modi window,ssh,run,drun -show window -width 2560 -yoffset 25 -location 1 -lines 10 -bw 0 -font "Source Code Pro 8" -padding 770 -separator-style solid
 
 #Rofi run
 alt + r
-	rofi -show run -width 2560 -location 0 -lines 19 -bw 0 -font "Source Code Pro 12" -padding 770 -separator-style solid
-
-# Lock node
-alt + shift + p
-	bspc window -t private
-
-# Lock a window from closing
-alt + Escape
-	bspc window -t locked 
-2
-w
+	rofi -modi window,ssh,run,drun -show drun -width 200 -yoffset 25 -location 1 -lines 10 -bw 0 -font "Source Code Pro 8" -padding 200 -separator-style solid

@@ -15,51 +15,41 @@ cursor_shape = ibeam
 filter_unmatched_urls = true
 
 [colors]
-# Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
 
-foreground      = #dddddd
-foreground_bold = #dddddd
-cursor          = #dddddd
-background      = rgba(30,30,30,0.95)
-highlight	= #CCC68Dr
+# special
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = rgba(56,56,56,0.95)
 
-# 16 color space
-
-# Black, Gray, Silver, White
+# black
 color0  = #1d1f21
 color8  = #969896
-color7  = #c5c8c6
-color15 = #ffffff
 
-# Red
+# red
 color1  = #cc6666
 color9  = #cc6666
 
-# Green
+# green
 color2  = #b5bd68
 color10 = #b5bd68
 
-# Yellow
+# yellow
 color3  = #f0c674
 color11 = #f0c674
 
-# Blue
+# blue
 color4  = #81a2be
 color12 = #81a2be
 
-# Purple
+# magenta
 color5  = #b294bb
 color13 = #b294bb
 
-# Teal
+# cyan
 color6  = #8abeb7
 color14 = #8abeb7
 
-# Extra colors
-color16 = #de935f
-color17 = #a3685a
-color18 = #282a2e
-color19 = #373b41
-color20 = #b4b7b4
-color21 = #e0e0e0
+# white
+color7  = #c5c8c6
+color15 = #ffffff

@@ -8,7 +8,7 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 ;background = #aa222222
-background = #dd222222
+background = #dd424242
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dddddd
@@ -43,29 +43,35 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-;font-1 = Sans:size=9;0
-font-1 = SourceCodePro:size=9;0
-font-0 = FontAwesome:size=10:weight=heavy;0
-font-2 = MaterialDesignIcons:size=11;0
+;font-1 = Sans:size=9;2
+font-1 = SourceCodePro:size=10;2
+font-0 = FontAwesome:size=10:weight=heavy;2
+font-2 = MaterialDesignIcons:size=10;2
 
+E
 modules-left = wired-network wireless-network mpd
 modules-center = bspwm
-modules-right = updates backlight volume battery cpu memory date
+modules-right = pkg volume battery date power
 
 [module/cpu]
 interval = 3
 type = internal/cpu
 label = CPU: %percentage%%
 
-[module/bluetooth]
-type = custom/script
-interval = 5
-exec = ~/.config/polybar/bluetooth.sh
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
 
-[module/clock]
-type = internal/date
-date = %Y-%m-%d    %H:%M
-format-padding = 2
+[module/vpn]
+type = custom/script
+exec = "🖧 "
+exec-if = pgrep -x openvpn
+click-left = openvpn --config /etc/openvpn/mx3.nordvpn.com.udp1194.ovpn --auth-user-pass 
+/etc/openvpn/user-pass.txt
+interval = 5
+format-underline = #268bd2
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
 
 [module/bspwm]
 type = internal/bspwm
@@ -122,50 +128,55 @@ ramp-capacity-3-foreground = #ffffff
 ramp-capacity-4 = 
 ramp-capacity-4-foreground = #ffffff
 label-charging = 
+label-discharging = %percentage%
 #label-charging-padding = 2
-
-[module/updates]
-type = custom/script
-exec = python3 ~/scripts/num.py
-interval = 100
 
 [module/date]
 type = internal/date
-interval = 1
+interval = 5
 date =
-date-alt = " %Y-%m-%d"
-time = %H:%M
-time-alt = %H:%M:%S
-format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+date-alt = %A %B %d
+time = %H:%M " 
+time-alt =
+format-background = #cc323232
 label = %date% %time%
+format-padding = 3
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next> <bar-progress>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-random> <bar-progress> <label-song>
 icon-play = 
 icon-pause = 
 icon-stop = 
 icon-prev = 
 icon-next = 
-label-song =   %artist% - %title%
+icon-random = 🔀
+label-time = %elapsed% / %total%
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+label-song = %artist% ─ %title%
 label-song-maxlen = 40
 label-song-ellipsis = true
 bar-progress-width = 25
 bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
+bar-progress-fill =─
+bar-progress-fill-font = 2
+bar-progress-empty =─
+bar-progress-empty-foreground = ${colors.foreground-alt}
+bar-progress-empty-font = 2
 label-song-margin-left = 1
 
 [module/volume]
 type = internal/volume
 master-soundcard = default
 mapping=true
-format-volume = <ramp-volume> <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-padding=0
+format-muted = <label-muted>
 label-muted =  muted
 label-muted-padding=2
 bar-volume-width = 10
@@ -185,23 +196,11 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/xbacklight]
-type = internal/xbacklight
-output = eDP-1
-format = <ramp>
-label = 
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-
 [module/backlight]
-inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 format = <ramp>
-label = 
+label = %percentage%
 ramp-0 = 🌕
 ramp-1 = 🌔
 ramp-2 = 🌓
@@ -241,3 +240,46 @@ bar-used-foreground-3 = #ff5555
 bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
+
+[module/keyboard]
+type = internal/xkeyboard
+format = <label-layout> <label-indicator>
+format-spacing = 0
+label-layout = %name%
+label-layout-padding = 2
+label-layout-foreground = #ff
+
+[module/pkg]
+type = custom/script
+interval = 1200
+format = <label>
+label = "%output:0:30%"
+exec = ~/.config/polybar/pkg.sh
+
+[module/powermenu]
+type = custom/menu
+label-open =
+;label-open-background = #dd0000
+;label-open-foreground = #fff
+label-close = cancel
+;label-close-background = #dd0000
+;label-close-foreground = #fff
+label-open-padding-right = 2.5
+label-close-padding = 3 
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-0-padding = 3
+menu-0-1-padding = 3
+menu-1-0 = reboot?  
+menu-1-0-exec = sudo reboot
+menu-1-0-padding = 3
+menu-2-0 = power off?  
+menu-2-0-exec = sudo poweroff
+menu-2-0-padding = 3
+
+[module/power]
+type = custom/script
+exec = "/home/ray/scripts/powericon.sh"
+click-left = "/home/ray/scripts/oblogout.sh"

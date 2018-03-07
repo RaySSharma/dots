@@ -24,4 +24,5 @@ export PATH="/home/ray/anaconda3/bin:$PATH"
 export PATH="/usr/local/texlive/2016/bin/x86_64-linux:$PATH"
 export PATH="/home/ray/scripts:$PATH"
 
-export TERM=xterm
+export TERM=xterm-256color
+
