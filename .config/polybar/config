@@ -6,11 +6,9 @@
 ;throttle_ms = 50
 
 [colors]
-;background = ${xrdb:color0:#222}
-;background = #aa222222
-background = #dd424242
+;background = #dd343e49
+background = #ee383838
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dddddd
 foreground-alt = #555
 primary = #ffb52a
@@ -27,6 +25,7 @@ radius = 0.0
 fixed-center = true
 wm_name=bspwm
 wm-restack=bspwm
+tray-position=left
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -44,14 +43,14 @@ module-margin-left = 2
 module-margin-right = 2
 
 ;font-1 = Sans:size=9;2
-font-1 = SourceCodePro:size=10;2
+font-1 = SourceCodePro:size=9;2
 font-0 = FontAwesome:size=10:weight=heavy;2
 font-2 = MaterialDesignIcons:size=10;2
 
 E
-modules-left = wired-network wireless-network mpd
+modules-left = wireless-network mpd
 modules-center = bspwm
-modules-right = pkg volume battery date power
+modules-right = pkg cpu memory volume battery date power
 
 [module/cpu]
 interval = 3
@@ -94,7 +93,7 @@ type = internal/network
 interface = wlo1
 interval = 3
 ping_interval = 3
-format-connected = <ramp-signal><label-connected>
+format-connected =<label-connected>
 label-connected=%essid%
 label-connected-foreground = #eefafafa
 label-disconnected=not connected
@@ -144,13 +143,12 @@ format-padding = 3
 
 [module/mpd]
 type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <icon-random> <bar-progress> <label-song>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <bar-progress> <label-song>
 icon-play = 
 icon-pause = 
 icon-stop = 
 icon-prev = 
 icon-next = 
-icon-random = 🔀
 label-time = %elapsed% / %total%
 toggle-on-foreground = #ff
 toggle-off-foreground = #55
