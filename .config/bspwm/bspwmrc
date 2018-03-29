@@ -34,7 +34,7 @@ bspc rule -a "Plank" manage=off
 bspc rule -a "Mathematica" state=tiled desktop=^5
 bspc rule -a "Evince" state=tiled
 bspc rule -a "Subl3" state=tiled desktop=^3
-bspc rule -a "Mendeley Desktop" state=tiled desktop=^4
+bspc rule -a "Mendeley Desktop" state=tiled desktop=^3
 bspc rule -a "Qt-subapplication" state=floating
 bspc rule -a "Polybar" manage=off layer=above locked=on border=off
 bspc rule -a "Pavucontrol" state=floating
@@ -45,9 +45,13 @@ bspc rule -a "Firefox" desktop=^2 state=tiled
 bspc rule -a "Oblogout" state=floating layer=above
 bspc rule -a "Dialog" state=floating layer=above
 bspc rule -a "Rofi" manage=off
+bspc rule -a "Vivaldi-stable" state=tiled desktop=^2
+bspc rule -a "Slack" state=tiled desktop=^5
 
+bspc desktop 2 -l monocle
+bspc desktop 5 -l monocle
 bspc config top_padding 12
-bspc config bottom_padding 55
+bspc config bottom_padding 12
 
 bspc config external_rules_command "~/.config/bspwm/external_rules.sh"
 
@@ -64,5 +68,7 @@ dropbox &
 xset s noblank
 udiskie &
 setxkbmap -option grp:rctrl_rshift_toggle us,ru -variant ',phonetic' &
+nm-applet &
+blueman-applet &
 cairo-dock -ao &
-xdotool search --class cairo-dock windowraise %@
+rfkill block bluetooth
